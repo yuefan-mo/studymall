@@ -3,6 +3,10 @@
 Hertz文档网站：`https://www.cloudwego.io/zh/docs/hertz/`
 视频案例代码网站：`https://github.com/cloudwego/biz-demo`
 
+## 将Go的工具全部添加下载
+- 打开命令面板（ctrl+shift+p）
+- 输入 `Go: Install/Update Tools`，勾选全部工具，点击确认
+
 ## hello_world 开发环境配置
 使用`go env `检查`GOPROXY`的值，修改为`go env -w GOPROXY=https://goproxy.cn,direct`
 
@@ -31,3 +35,22 @@ Hertz文档网站：`https://www.cloudwego.io/zh/docs/hertz/`
 ## 脚手架
 ### IDL（接口描述语言）
 每个线程用不同的计算机语言，如同时用java和go语言
+
+#### 相关网站：
+**cwgo(代码生成工具)：**
+网址：`https://github.com/cloudwego/cwgo` （网站下有cwgo的说明文档可以查看）
+安装命令：`GOPROXY=https://goproxy.cn/,direct go install github.com/cloudwego/cwgo@latest`  
+如果提前设置好`GOPROXY`,直接使用  `go install github.com/cloudwego/cwgo@latest`
+
+
+**thriftgo(thrift依赖于此工具)：**
+网址：`https://github.com/cloudwego/thriftgo`
+安装命令：`go install github.com/cloudwego/thriftgo@latest`
+
+#### 运行代码：
+- 先检测环境路径中有没有cwgo的路径，如果没有将go/bin添加到路径中
+`cwgo --help` 检查
+- 运行时与视频不一样，应使用如下指令：`cwgo server --type RPC --module github.com/yuefan-mo/studymall --service demo_thrift --idl ../../idl/echo.thrift`
+
+
+
