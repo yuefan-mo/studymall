@@ -3,9 +3,20 @@
 Hertz文档网站：`https://www.cloudwego.io/zh/docs/hertz/`
 视频案例代码网站：`https://github.com/cloudwego/biz-demo`
 
-## 将Go的工具全部添加下载
-- 打开命令面板（ctrl+shift+p）
+## 将Vscode中Go的工具全部添加下载
+- 在vscode界面打开命令面板（ctrl+shift+p）
 - 输入 `Go: Install/Update Tools`，勾选全部工具，点击确认
+
+## git ssh连接超时解决方法：
+将ssh端口22切换为端口443，即在C盘的.ssh文件下新建config文件,内容如下：
+```
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+    IdentityFile ~/.ssh/id_rsa  # 替换为你的私钥路径
+```
+
 
 ## hello_world 开发环境配置
 使用`go env `检查`GOPROXY`的值，修改为`go env -w GOPROXY=https://goproxy.cn,direct`
@@ -48,9 +59,8 @@ Hertz文档网站：`https://www.cloudwego.io/zh/docs/hertz/`
 安装命令：`go install github.com/cloudwego/thriftgo@latest`
 
 #### 运行代码：
-- 先检测环境路径中有没有cwgo的路径，如果没有将go/bin添加到路径中
+- 先检测环境路径中有没有cwgo的路径，将模块添加到/bin路径中
 `cwgo --help` 检查
-- 运行时与视频不一样，应使用如下指令：`cwgo server --type RPC --module github.com/yuefan-mo/studymall --service demo_thrift --idl ../../idl/echo.thrift`
-
+- （待定）运行时与视频不一样，应使用如下指令：`cwgo server --type RPC --module github.com/yuefan-mo/studymall --service demo_thrift --idl ../../idl/echo.thrift`
 
 
