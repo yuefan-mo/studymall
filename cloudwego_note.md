@@ -45,7 +45,8 @@ Host github.com
 
 ## 脚手架
 ### IDL（接口描述语言）
-每个线程用不同的计算机语言，如同时用java和go语言
+每个线程用不同的计算机语言，如同时用java和go语言,也**可以将一个go程序封装成一个接口被另一个go程序调用**
+两种常见的IDL：`thrift`和`protobuf`
 
 #### 相关网站：
 **cwgo(代码生成工具)：**
@@ -58,10 +59,18 @@ Host github.com
 网址：`https://github.com/cloudwego/thriftgo`
 安装命令：`go install github.com/cloudwego/thriftgo@latest`
 
-#### 运行代码：
+**protobuf:**
+网址：`https://protobuf.com.cn/programming-guides/proto3/`
+下载路径：`https://github.com/protocolbuffers/protobuf/releases` （注意下载windows对应的win64.zip）
+
+
+#### thrift运行代码：
 - 先检测环境路径中有没有cwgo的路径，将模块添加到/bin路径中
 `cwgo --help` 检查
 - **视频中没有，但需要：** 在初始文件夹目录下运行指令`go work init`(如果有多个 Go 模块在不同的目录下，并且希望它们能够互相引用和协作，你可以使用 `go work init` 来创建一个工作区，确保它们之间的依赖关系能够正确处理。)
 - 创建demo/demo_thrift文件夹，输入指令：`cwgo server --type RPC --module github.com/yuefan-mo/studymall/demo/demo_thrift --service demo_thrift --idl ../../idl/echo.thrift`
+- `go work use .`：将会在 go.work 文件中记录 /project 目录，使得工作区能够管理 /moduleA 和 /moduleB 中的模块依赖关系。
 
-
+ #### proto运行代码：
+ - 需要将 proto中的protoc.exe文件和include文件夹添加到环境变量中
+ - 输入指令：`cwgo server -I ../../idl --type RPC --module github.com/yuefan-mo/studymall/demo/demo_proto --service demo_proto --idl ../../idl/echo.proto`
