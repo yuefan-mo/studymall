@@ -61,6 +61,7 @@ Host github.com
 #### 运行代码：
 - 先检测环境路径中有没有cwgo的路径，将模块添加到/bin路径中
 `cwgo --help` 检查
-- （待定）运行时与视频不一样，应使用如下指令：`cwgo server --type RPC --module github.com/yuefan-mo/studymall --service demo_thrift --idl ../../idl/echo.thrift`
+- **视频中没有，但需要：** 在初始文件夹目录下运行指令`go work init`(如果有多个 Go 模块在不同的目录下，并且希望它们能够互相引用和协作，你可以使用 `go work init` 来创建一个工作区，确保它们之间的依赖关系能够正确处理。)
+- 创建demo/demo_thrift文件夹，输入指令：`cwgo server --type RPC --module github.com/yuefan-mo/studymall/demo/demo_thrift --service demo_thrift --idl ../../idl/echo.thrift`
 
 
