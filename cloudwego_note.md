@@ -74,3 +74,8 @@ Host github.com
  #### proto运行代码：
  - 需要将 proto中的protoc.exe文件和include文件夹添加到环境变量中
  - 输入指令：`cwgo server -I ../../idl --type RPC --module github.com/yuefan-mo/studymall/demo/demo_proto --service demo_proto --idl ../../idl/echo.proto`
+
+## 服务注册与服务发现
+Kitex官网：``
+consul安装注册：`https://duoke360.com/tutorial/hertz/h149
+`
