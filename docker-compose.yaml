@@ -4,3 +4,12 @@ services:
     image: hashicorp/consul
     ports:
       - "8500:8500"
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      # - MYSQL_DATABASE=mydatabase  # 默认创建数据库
+      # - MYSQL_USER=user          # 创建用户
+      # - MYSQL_PASSWORD=12345  # 设置用户密码
