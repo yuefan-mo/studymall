@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/yuefan-mo/studymall/demo/demo_proto/biz/model"
 	"github.com/yuefan-mo/studymall/demo/demo_proto/conf"
 
 	"gorm.io/driver/mysql"
@@ -34,16 +35,17 @@ func Init() {
 		panic(err)
 	}
 
-	type Version struct {
-		Version string
-	}
-	var v Version
+	// type Version struct {
+	// 	Version string
+	// }
+	// var v Version
 
-	err = DB.Raw("select version() as version").Scan(&v).Error
+	// err = DB.Raw("select version() as version").Scan(&v).Error
 
 	if err != nil {
 		panic(err)
 	}
+	DB.AutoMigrate(model.User{})
 
-	fmt.Println(v)
+	fmt.Printf("%#v", DB.Debug().Exec("select version()"))
 }
